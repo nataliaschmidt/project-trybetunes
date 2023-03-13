@@ -18,7 +18,7 @@ export default class Login extends Component {
       isLoading: true,
     });
     const response = await createUser({ name: loginName });
-    console.log(response);
+    // console.log(response); => Retorna OK
     if (response === 'OK') {
       this.setState({
         isLoading: false,
