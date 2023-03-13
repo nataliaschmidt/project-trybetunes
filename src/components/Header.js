@@ -18,7 +18,7 @@ export default class Header extends Component {
 
   fetchGetUser = async () => {
     const userObj = await getUser();
-    console.log(userObj);
+    // console.log(userObj);
     this.setState({
       name: userObj.name,
       // email: userObj.email,

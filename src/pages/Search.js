@@ -11,6 +11,8 @@ export default class Search extends Component {
     search: '',
     isLoading: false,
     searchResults: false,
+    searchArtistResult: '',
+    musics: [],
   };
 
   handleChange = ({ target }) => {
@@ -29,13 +31,16 @@ export default class Search extends Component {
     if (music) {
       this.setState({
         isLoading: false,
+        searchResults: true,
         search: '',
+        searchArtistResult: search,
+        musics: music,
       });
     }
   };
 
   render() {
-    const { search, isLoading } = this.state;
+    const { search, isLoading, searchResults, searchArtistResult, musics } = this.state;
     console.log(search);
     const isFormValid = search.length >= MIN_LENGTH;
 
@@ -67,7 +72,8 @@ export default class Search extends Component {
 
                 </button>
               </form>)}
-          <SearchResults artist={ search } />
+          {searchResults && searchArtistResult
+          && <SearchResults artist={ searchArtistResult } musics={ musics } />}
         </div>
       </>
     );
