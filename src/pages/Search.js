@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import Loading from '../components/Loading';
+import SearchResults from '../components/SearchResults';
 
 const MIN_LENGTH = 2;
 
 export default class Search extends Component {
   state = {
     search: '',
+    isLoading: false,
+    searchResults: false,
   };
 
   handleChange = ({ target }) => {
@@ -14,38 +19,55 @@ export default class Search extends Component {
     });
   };
 
-  render() {
-    const { search } = this.state;
+  fetchSearchAlbumAPI = async (search) => {
+    this.setState({
+      isLoading: true,
+    });
+    const music = await searchAlbumsAPI(search);
+    console.log(music);
+    // retorna um array de objetos
+    if (music) {
+      this.setState({
+        isLoading: false,
+        search: '',
+      });
+    }
+  };
 
+  render() {
+    const { search, isLoading } = this.state;
+    console.log(search);
     const isFormValid = search.length >= MIN_LENGTH;
 
     return (
       <>
         <Header />
         <div data-testid="page-search">
-          <form>
-            <label htmlFor="name">
-              Pesquisar:
-              <input
-                data-testid="search-artist-input"
-                type="text"
-                id="search"
-                name="search"
-                value={ search }
-                onChange={ this.handleChange }
-              />
-            </label>
-            <button
-              data-testid="search-artist-button"
-              type="button"
-              // onClick={ () =>  }
-              disabled={ !isFormValid }
-            >
-              Entrar
+          { isLoading ? <Loading />
+            : (
+              <form>
+                <label htmlFor="name">
+                  Pesquisar:
+                  <input
+                    data-testid="search-artist-input"
+                    type="text"
+                    id="search"
+                    name="search"
+                    value={ search }
+                    onChange={ this.handleChange }
+                  />
+                </label>
+                <button
+                  data-testid="search-artist-button"
+                  type="button"
+                  onClick={ () => this.fetchSearchAlbumAPI(search) }
+                  disabled={ !isFormValid }
+                >
+                  Pesquisar
 
-            </button>
-          </form>
-
+                </button>
+              </form>)}
+          <SearchResults artist={ search } />
         </div>
       </>
     );
