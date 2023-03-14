@@ -31,17 +31,7 @@ export default class Album extends Component {
         <div data-testid="page-album">
           <h2 data-testid="artist-name">{ musicsOfId[0]?.artistName }</h2>
           <h2 data-testid="album-name">{ musicsOfId[0]?.collectionName }</h2>
-          {
-            newMusicsArray.map((music) => (
-              <MusicCard
-                key={ music.trackName }
-                trackName={ music.trackName }
-                previewUrl={ music.previewUrl }
-                trackId={ music.trackId }
-                musicObj={ music }
-              />
-            ))
-          }
+          <MusicCard arrayMusic={ newMusicsArray } />
         </div>
       </>
     );
