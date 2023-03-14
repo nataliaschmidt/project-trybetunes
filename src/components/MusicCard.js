@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 export default class MusicCard extends Component {
@@ -45,6 +45,17 @@ export default class MusicCard extends Component {
     }
   };
 
+  fetchRemoveSong = async (music) => {
+    this.setState({
+      isLoading: true,
+    });
+    const responseRemove = await removeSong(music);
+    // console.log(responseRemove); // retorna OK
+    if (responseRemove) {
+      await this.fetchGetFavoriteSong();
+    }
+  };
+
   render() {
     const { arrayMusic } = this.props;
     const { isLoading, favoritesMusic } = this.state;
@@ -78,8 +89,10 @@ export default class MusicCard extends Component {
                   // disabled={  }
                   // Checked feito com a ajuda do Emilio Butzlaff \o/
                   checked={ favoritesMusic
-                    .some(({ trackId }) => trackId === music.trackId) }
-                  onChange={ () => this.fetchAddSong(music) }
+                    ?.some(({ trackId }) => trackId === music.trackId) }
+                  onChange={ ({ target }) => (target.checked ? this.fetchAddSong(music)
+                    : this.fetchRemoveSong(music)) }
+
                 />
               </label>
             </div>
