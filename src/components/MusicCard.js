@@ -18,8 +18,8 @@ export default class MusicCard extends Component {
     this.setState({
       isLoading: true,
     });
+    await addSong(music);
     const newFavoriteMusic = [...favoritesMusic, music];
-    await addSong(newFavoriteMusic);
     this.setState({
       isLoading: false,
       favoritesMusic: newFavoriteMusic,
@@ -31,23 +31,34 @@ export default class MusicCard extends Component {
       isLoading: true,
     });
     const response = await getFavoriteSongs();
-    console.log(response);
-    this.setState({
-      isLoading: false,
-    });
+    // console.log(response);
+    if (response) {
+      this.setState({
+        isLoading: false,
+        favoritesMusic: response,
+      });
+    } else {
+      this.setState({
+        isLoading: false,
+        favoritesMusic: [],
+      });
+    }
   };
 
   render() {
     const { arrayMusic } = this.props;
     const { isLoading, favoritesMusic } = this.state;
-    console.log(favoritesMusic);
+    // console.log('--------------------------');
+    // console.log(favoritesMusic);
+    // console.log('--------------------------');
+
     // console.log(musicObj);
     if (isLoading) return <Loading />;
     return (
       <div>
         {
-          arrayMusic.map((music) => (
-            <div div key={ music.trackName }>
+          arrayMusic?.map((music) => (
+            <div key={ music.trackName }>
               <h2>{music.trackName}</h2>
               <audio data-testid="audio-component" src={ music.previewUrl } controls>
                 <track kind="captions" />
@@ -65,7 +76,9 @@ export default class MusicCard extends Component {
                   type="checkbox"
                   name="favorite"
                   // disabled={  }
-                  checked={ favoritesMusic.includes(music) }
+                  // Checked feito com a ajuda do Emilio Butzlaff \o/
+                  checked={ favoritesMusic
+                    .some(({ trackId }) => trackId === music.trackId) }
                   onChange={ () => this.fetchAddSong(music) }
                 />
               </label>
@@ -77,8 +90,6 @@ export default class MusicCard extends Component {
   }
 }
 
-// MusicCard.propTypes = {
-//   trackName: PropTypes.string.isRequired,
-//   previewUrl: PropTypes.string.isRequired,
-//   trackId: PropTypes.number.isRequired,
-// };
+MusicCard.propTypes = {
+  arrayMusic: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+};
