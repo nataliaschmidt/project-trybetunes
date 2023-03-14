@@ -50,7 +50,7 @@ export default class MusicCard extends Component {
       isLoading: true,
     });
     const responseRemove = await removeSong(music);
-    // console.log(responseRemove); // retorna OK
+    console.log(responseRemove); // retorna OK
     if (responseRemove) {
       await this.fetchGetFavoriteSong();
     }
