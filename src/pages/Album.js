@@ -24,7 +24,7 @@ export default class Album extends Component {
     // console.log(typeof id);
     const { musicsOfId } = this.state;
     const newMusicsArray = musicsOfId.slice(1);
-    console.log(newMusicsArray);
+    // console.log(newMusicsArray);
     return (
       <>
         <Header />
@@ -32,11 +32,13 @@ export default class Album extends Component {
           <h2 data-testid="artist-name">{ musicsOfId[0]?.artistName }</h2>
           <h2 data-testid="album-name">{ musicsOfId[0]?.collectionName }</h2>
           {
-            newMusicsArray.map(({ trackName, previewUrl }) => (
+            newMusicsArray.map((music) => (
               <MusicCard
-                key={ trackName }
-                trackName={ trackName }
-                previewUrl={ previewUrl }
+                key={ music.trackName }
+                trackName={ music.trackName }
+                previewUrl={ music.previewUrl }
+                trackId={ music.trackId }
+                musicObj={ music }
               />
             ))
           }

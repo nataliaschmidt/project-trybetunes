@@ -51,7 +51,7 @@ export default class Search extends Component {
           { isLoading ? <Loading />
             : (
               <form>
-                <label htmlFor="name">
+                <label htmlFor="search">
                   Pesquisar:
                   <input
                     data-testid="search-artist-input"
