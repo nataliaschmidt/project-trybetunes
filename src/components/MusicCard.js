@@ -91,7 +91,6 @@ export default class MusicCard extends Component {
                   id="favorite"
                   type="checkbox"
                   name="favorite"
-                  // disabled={  }
                   // Checked feito com a ajuda do Emilio Butzlaff \o/
                   checked={ favoritesMusic
                     ?.some(({ trackId }) => trackId === music.trackId) }

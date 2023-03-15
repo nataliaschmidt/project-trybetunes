@@ -11,6 +11,7 @@ export default class ProfileEdit extends Component {
     userEmail: '',
     userImage: '',
     userDescription: '',
+
   };
 
   componentDidMount() {
@@ -40,7 +41,7 @@ export default class ProfileEdit extends Component {
     });
   };
 
-  onButtonSave = async () => {
+  onButtonSave = () => {
     const { history } = this.props;
     const { userName, userEmail, userImage, userDescription } = this.state;
     this.setState({
@@ -52,11 +53,13 @@ export default class ProfileEdit extends Component {
       image: userImage,
       description: userDescription,
     };
-    const response = await updateUser(ApiObj);
+    const response = updateUser(ApiObj);
     console.log(response);
     this.setState({
       isLoading: false,
-    }, () => history.push('/profile'));
+    });
+
+    return history.push('/profile');
   };
 
   render() {
@@ -65,9 +68,9 @@ export default class ProfileEdit extends Component {
     if (isLoading) <Loading />;
 
     const isFormValid = userName.length
-    && userEmail.length
-    && userImage.length
-    && userDescription.length > 0;
+      && userEmail.length
+      && userImage.length
+      && userDescription.length > 0;
     return (
       <>
         <Header />
@@ -137,5 +140,7 @@ export default class ProfileEdit extends Component {
 }
 
 ProfileEdit.propTypes = {
-  history: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };

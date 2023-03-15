@@ -4,12 +4,8 @@ import Loading from './Loading';
 import Nav from './Nav';
 
 export default class Header extends Component {
-  // Ainda não tenho o valor das outras chaves de retorno da função.
   state = {
     name: '',
-    // email: '',
-    // image: '',
-    // description: '',
   };
 
   componentDidMount() {
@@ -21,9 +17,6 @@ export default class Header extends Component {
     // console.log(userObj);
     this.setState({
       name: userObj.name,
-      // email: userObj.email,
-      // image: userObj.image,
-      // description: userObj.description,
     });
   };
 

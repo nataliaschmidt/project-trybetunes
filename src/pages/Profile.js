@@ -59,7 +59,7 @@ export default class Profile extends Component {
           <p>{description}</p>
         </h4>
         <Link to="/profile/edit">
-          <button>Editar perfil</button>
+          Editar perfil
         </Link>
       </div>
     );

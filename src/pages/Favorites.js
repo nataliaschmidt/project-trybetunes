@@ -14,18 +14,6 @@ export default class Favorites extends Component {
     this.fetchGetFavoriteSongs();
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   const { favoriteMusics: currentFavoriteMusics } = this.state;
-
-  //   if (currentFavoriteMusics.length !== prevState.favoriteMusics.length) {
-  //     this.setState({
-  //       favoriteMusics: currentFavoriteMusics
-  //     })
-  //     // const newFavorites = JSON.stringify(currentFavoriteMusics);
-  //     // localStorage.setItem('FAVORITE_SONGS_KEY', newFavorites);
-  //   }
-  // }
-
   fetchGetFavoriteSongs = async () => {
     this.setState({
       isLoading: true,
