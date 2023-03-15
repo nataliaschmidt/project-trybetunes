@@ -39,7 +39,6 @@ export default class Profile extends Component {
     if (isLoading) <Loading />;
 
     return (
-
       <div data-testid="page-profile">
         <Header />
         <img
@@ -59,9 +58,10 @@ export default class Profile extends Component {
           Descrição:
           <p>{description}</p>
         </h4>
-        <Link to="/profile/edit">Editar perfil</Link>
+        <Link to="/profile/edit">
+          <button>Editar perfil</button>
+        </Link>
       </div>
-
     );
   }
 }

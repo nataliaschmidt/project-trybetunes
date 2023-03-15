@@ -14,7 +14,17 @@ export default class Favorites extends Component {
     this.fetchGetFavoriteSongs();
   }
 
-  // REMOVENDO O CODIGO
+  // componentDidUpdate(prevProps, prevState) {
+  //   const { favoriteMusics: currentFavoriteMusics } = this.state;
+
+  //   if (currentFavoriteMusics.length !== prevState.favoriteMusics.length) {
+  //     this.setState({
+  //       favoriteMusics: currentFavoriteMusics
+  //     })
+  //     // const newFavorites = JSON.stringify(currentFavoriteMusics);
+  //     // localStorage.setItem('FAVORITE_SONGS_KEY', newFavorites);
+  //   }
+  // }
 
   fetchGetFavoriteSongs = async () => {
     this.setState({
@@ -26,12 +36,10 @@ export default class Favorites extends Component {
       favoriteMusics: response,
       isLoading: false,
     });
-    // response.forEach((music) => {
-    //   this.setState((prevState) => ({
-    //     favoriteMusics: [...prevState.favoriteMusics, music],
-    //     isLoading: false,
-    //   }));
-    // });
+  };
+
+  updateFavorite = async () => {
+    await this.fetchGetFavoriteSongs();
   };
 
   render() {
@@ -42,7 +50,10 @@ export default class Favorites extends Component {
       <>
         <Header />
         <div data-testid="page-favorites">
-          <MusicCard arrayMusic={ favoriteMusics } />
+          <MusicCard
+            arrayMusic={ favoriteMusics }
+            teste={ this.updateFavorite }
+          />
         </div>
       </>
     );
