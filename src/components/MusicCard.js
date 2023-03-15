@@ -46,24 +46,23 @@ export default class MusicCard extends Component {
   };
 
   fetchRemoveSong = async (music) => {
-    const { teste } = this.props;
+    const { updateFavorite } = this.props;
     this.setState({
       isLoading: true,
     });
     const responseRemove = await removeSong(music);
     console.log(responseRemove); // retorna OK
-    if (responseRemove && typeof teste !== 'function') {
+    if (responseRemove && typeof updateFavorite !== 'function') {
       await this.fetchGetFavoriteSong();
     } else {
-      await teste();
+      await updateFavorite();
     }
   };
 
   render() {
-    const { arrayMusic, teste } = this.props;
+    const { arrayMusic } = this.props;
     const { isLoading, favoritesMusic } = this.state;
-    console.log(teste);
-    // console.log(teste);
+    // console.log(updateFavorite); -> recebendo por props
     // console.log('--------------------------');
     // console.log(favoritesMusic);
     // console.log('--------------------------');
@@ -109,9 +108,9 @@ export default class MusicCard extends Component {
 
 MusicCard.propTypes = {
   arrayMusic: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
-  teste: PropTypes.func,
+  updateFavorite: PropTypes.func,
 };
 
 MusicCard.defaultProps = {
-  teste: null,
+  updateFavorite: null,
 };

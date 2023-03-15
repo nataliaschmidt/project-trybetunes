@@ -40,7 +40,7 @@ export default class Favorites extends Component {
         <div data-testid="page-favorites">
           <MusicCard
             arrayMusic={ favoriteMusics }
-            teste={ this.updateFavorite }
+            updateFavorite={ this.updateFavorite }
           />
         </div>
       </>

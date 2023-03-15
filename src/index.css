@@ -17,3 +17,8 @@ code {
   display: flex;
   justify-content: center;
 }
+
+body {
+  /* background-image: radial-gradient(#ad5389, #3c1053);
+  height: 100vh; */
+}
