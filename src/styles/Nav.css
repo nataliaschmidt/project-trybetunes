@@ -1,0 +1,23 @@
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 61px;
+  font-size: 22px;
+}
+
+.link-nav {
+  text-decoration: none;
+  color: #444955;
+  font-weight: 700;
+  line-height: 16px;
+letter-spacing: 0.03em;
+text-transform: capitalize;
+}
+
+.icon-nav {
+width: 35px;
+height: 35px;
+margin-right: 15px;
+}

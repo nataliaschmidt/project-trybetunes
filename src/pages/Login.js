@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
+import '../styles/Login.css';
 
 const MIN_LENGTH = 3;
-
 export default class Login extends Component {
   state = {
     loginName: '',
@@ -43,16 +43,21 @@ export default class Login extends Component {
 
     if (redirect) return <Redirect to="/search" />;
     return (
-      <div data-testid="page-login">
-        <form>
-
-          <label htmlFor="name">
-            Nome:
+      <div className="container-login" data-testid="page-login">
+        <form className="form-login">
+          <img
+            className="logo"
+            src="./images/logo.png"
+            alt="logo trybetunes"
+          />
+          <label htmlFor="name" className="form-label">
             <input
               data-testid="login-name-input"
               type="text"
               id="name"
+              className="form-control"
               name="loginName"
+              placeholder="Qual seu nome?"
               value={ loginName }
               onChange={ this.handleChange }
             />
@@ -60,6 +65,7 @@ export default class Login extends Component {
 
           <button
             data-testid="login-submit-button"
+            className="btn btn-primary"
             type="button"
             onClick={ () => this.fetchCreateUser() }
             disabled={ !isFormValid }

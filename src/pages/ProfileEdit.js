@@ -53,13 +53,13 @@ export default class ProfileEdit extends Component {
       image: userImage,
       description: userDescription,
     };
-    const response = updateUser(ApiObj);
-    console.log(response);
     this.setState({
       isLoading: false,
     });
 
-    return history.push('/profile');
+    history.push('/profile');
+    const response = updateUser(ApiObj);
+    // console.log(response);
   };
 
   render() {

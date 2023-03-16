@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../styles/SearchResults.css';
 
 export default class SearchResults extends Component {
   render() {
@@ -9,26 +10,30 @@ export default class SearchResults extends Component {
     // console.log(musics);
     return (
       <>
-        <h2>
+        <h2 className="result">
           Resultado de álbuns de:
           {' '}
           {artist}
         </h2>
-        {musics.length === 0 ? <h3>Nenhum álbum foi encontrado</h3>
-          : (
-            musics.map((music) => (
-              <div key={ music.collectionId }>
-                <img src={ music.artworkUrl100 } alt={ music.collectionName } />
-                <Link
-                  data-testid={ `link-to-album-${music.collectionId}` }
-                  to={ `/album/${music.collectionId}` }
-                >
-                  {music.collectionName}
+        <div className="container-result">
+          {musics.length === 0 ? <h3>Nenhum álbum foi encontrado</h3>
+            : (
+              musics.map((music) => (
 
-                </Link>
-              </div>
-            ))
-          )}
+                <div key={ music.collectionId } className="container-albuns">
+                  <Link
+                    className="link-result"
+                    data-testid={ `link-to-album-${music.collectionId}` }
+                    to={ `/album/${music.collectionId}` }
+                  >
+                    <img src={ music.artworkUrl100 } alt={ music.collectionName } />
+                    <h5>{music.collectionName}</h5>
+                  </Link>
+                  <h6>{music.artistName}</h6>
+                </div>
+              ))
+            )}
+        </div>
       </>
     );
   }

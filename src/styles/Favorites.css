@@ -1,0 +1,13 @@
+.favorite-title {
+  color: var(--secondary-acent-color);
+  font-weight: 700;
+font-size: 40px;
+line-height: 20px;
+}
+
+.container-favorites {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 40px;
+}

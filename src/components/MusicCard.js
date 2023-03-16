@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { MdFavoriteBorder } from 'react-icons/md';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import '../styles/MusicCard.css';
 
 export default class MusicCard extends Component {
   state = {
@@ -73,8 +75,8 @@ export default class MusicCard extends Component {
       <div>
         {
           arrayMusic?.map((music) => (
-            <div key={ music.trackName }>
-              <h2>{music.trackName}</h2>
+            <div key={ music.trackName } className="container-card-music">
+              <h3>{music.trackName}</h3>
               <audio data-testid="audio-component" src={ music.previewUrl } controls>
                 <track kind="captions" />
                 O seu navegador não suporta o elemento
@@ -84,8 +86,9 @@ export default class MusicCard extends Component {
                 .
               </audio>
               <label htmlFor="favorite">
-                Favorita
+                <MdFavoriteBorder className="icon-music-card" />
                 <input
+                  className="checkbox"
                   data-testid={ `checkbox-music-${music.trackId}` }
                   id="favorite"
                   type="checkbox"

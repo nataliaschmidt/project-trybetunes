@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
 import SearchResults from '../components/SearchResults';
+import '../styles/Search.css';
 
 const MIN_LENGTH = 2;
 
@@ -45,37 +46,45 @@ export default class Search extends Component {
     const isFormValid = search.length >= MIN_LENGTH;
 
     return (
-      <>
-        <Header />
-        <div data-testid="page-search">
+      <div className="container-search">
+        <div className="container-header-search">
+          <Header className="header" />
+        </div>
+        <div className="container-form-result" data-testid="page-search">
           { isLoading ? <Loading />
             : (
-              <form>
-                <label htmlFor="search">
-                  Pesquisar:
-                  <input
-                    data-testid="search-artist-input"
-                    type="text"
-                    id="search"
-                    name="search"
-                    value={ search }
-                    onChange={ this.handleChange }
-                  />
-                </label>
-                <button
-                  data-testid="search-artist-button"
-                  type="button"
-                  onClick={ () => this.fetchSearchAlbumAPI(search) }
-                  disabled={ !isFormValid }
-                >
-                  Pesquisar
+              <div className="container-form-search">
+                <form>
+                  <label htmlFor="search" className="form-label">
+                    <input
+                      data-testid="search-artist-input"
+                      type="text"
+                      id="search"
+                      className="form-control"
+                      placeholder="Digite a sua pesquisa"
+                      name="search"
+                      value={ search }
+                      onChange={ this.handleChange }
+                    />
+                  </label>
+                  <button
+                    data-testid="search-artist-button"
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={ () => this.fetchSearchAlbumAPI(search) }
+                    disabled={ !isFormValid }
+                  >
+                    Pesquisar
 
-                </button>
-              </form>)}
-          {searchResults && searchArtistResult
+                  </button>
+                </form>
+              </div>)}
+          <div className="container-result-search">
+            { searchResults && searchArtistResult
           && <SearchResults artist={ searchArtistResult } musics={ musics } />}
+          </div>
         </div>
-      </>
+      </div>
     );
   }
 }
