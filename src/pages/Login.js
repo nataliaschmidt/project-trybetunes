@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
 import '../styles/Login.css';
+import ImageLogo from '../assets/images/logo.png';
 
 const MIN_LENGTH = 3;
 export default class Login extends Component {
@@ -44,10 +45,10 @@ export default class Login extends Component {
     if (redirect) return <Redirect to="/search" />;
     return (
       <div className="container-login" data-testid="page-login">
-        <form className="form-login">
+        <form className="form-login" onSubmit={ () => this.fetchCreateUser() }>
           <img
             className="logo"
-            src="./images/logo.png"
+            src={ ImageLogo }
             alt="logo trybetunes"
           />
           <label htmlFor="name" className="form-label">
@@ -65,7 +66,7 @@ export default class Login extends Component {
 
           <button
             data-testid="login-submit-button"
-            className="btn btn-primary"
+            className="btn btn-primary btn-login"
             type="button"
             onClick={ () => this.fetchCreateUser() }
             disabled={ !isFormValid }

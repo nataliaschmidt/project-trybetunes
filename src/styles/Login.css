@@ -1,52 +1,44 @@
 .container-login {
+  background-color: #30332e;
   height: 100vh;
-  background-image: linear-gradient(to bottom right, #003BE5, #00D5E2);
   position: relative;
 }
 
 .form-login {
-  width: 750px;
-  height: 450px;
-  background-color: white;
-  margin: auto;
-  position: absolute; /* adicione a propriedade position absolute na div form-login */
-  top: 0;
-  left: 0;
-  right: 0;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.063);
+  border: 1px solid #30332e;
+  border-radius: 20px;
   bottom: 0;
+  box-shadow: 15px 15px 20px 2px rgba(0, 0, 0, 0.5),
+    0 0 10px 2px rgba(255, 255, 255, 0.5),
+    inset 0 0 20px 2px rgba(0, 0, 0, 0.5),
+    inset -8px -8px 10px 2px rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-radius: 20px;
-  box-shadow: 15px 15px 20px 2px rgba(0, 0, 0, 0.5),
-        0px 0px 10px 2px rgba(255, 255, 255, 0.5),
-        inset 0px 0px 20px 2px rgba(0, 0, 0, 0.5),
-        inset -8px -8px 20px 2px rgba(255, 255, 255, 0.5);
+  height: 450px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 750px;
 }
 
 .logo {
-  width: 187px;
-  height: 104px;
-  margin-top: 80px;
+  height: 200px;
+  margin-top: 10px;
+  width: 250px;
 }
 
 .container-login input {
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 10px;
   border: 1px solid var(--primary-font-color);
-border-radius: 100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  margin-top: 40px;
+  text-align: center;
 }
-
 
 .container-login input::placeholder {
-  color: var(--primary-font-color);
+  color: var(--secondary-acent-color);
 }
-
-/* position: absolute -> div .form-login posicionada em relação ao elemento pai (div .container-login). 
-top: 0,
-left: 0,
-right: 0
-bottom: 0 
-a div .form-login ficará esticada em todas as direções, assim centralizada.
-O position absolute posiciona em relação ao elemento pai mais proximo que tenha um position relative (no caso a div container-login, se não fosse ela seria outro elemento mais "próximo" que tivesse position relative. */

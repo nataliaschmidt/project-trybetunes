@@ -1,0 +1,34 @@
+:root {
+  background-color: #30332e;
+}
+
+.container-loading {
+  align-items: center;
+  background-color: #30332e;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.loading-big {
+  animation: neon 1.2s infinite;
+  color: #fefae0;
+  font-size: 8em;
+}
+
+@keyframes neon {
+
+  0%, 39%, 41%, 59%, 61%, 100% {
+    text-shadow: #f3faf7 0 0 12px , #ff1b8d 0 0 34px , #6e44ff 0 0 48px;
+  }
+
+  40%, 60% {
+    text-shadow: none;
+  }
+}
+
+.loading-logo {
+  height: 600px;
+  width: 700px;
+}

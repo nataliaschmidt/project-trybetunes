@@ -8,12 +8,14 @@ import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Loading from './components/Loading';
 
 class App extends React.Component {
   render() {
     return (
       <main>
         <Switch>
+        <Route exact path="/carregando" component={ Loading } />
           <Route exact path="/" component={ Login } />
           <Route exact path="/search" component={ Search } />
           <Route exact path="/album/:id" component={ Album } />

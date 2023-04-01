@@ -1,23 +1,23 @@
 ul {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 61px;
   font-size: 22px;
+  gap: 61px;
+  justify-content: center;
+  list-style: none;
 }
 
 .link-nav {
-  text-decoration: none;
-  color: #444955;
+  color: #fefae0;
   font-weight: 700;
+  letter-spacing: 0.03em;
   line-height: 16px;
-letter-spacing: 0.03em;
-text-transform: capitalize;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
 .icon-nav {
-width: 35px;
-height: 35px;
-margin-right: 15px;
+  height: 35px;
+  margin-right: 15px;
+  width: 35px;
 }

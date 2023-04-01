@@ -7,13 +7,13 @@ export default class SearchResults extends Component {
   render() {
     // console.log(this.props);
     const { artist, musics } = this.props;
-    // console.log(musics);
+     console.log(musics);
     return (
       <>
         <h2 className="result">
           Resultado de álbuns de:
           {' '}
-          {artist}
+          <span className='artist-name'>{artist}</span>
         </h2>
         <div className="container-result">
           {musics.length === 0 ? <h3>Nenhum álbum foi encontrado</h3>

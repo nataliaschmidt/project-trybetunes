@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
+import '../styles/ProfileEdit.css'
 
 export default class ProfileEdit extends Component {
   state = {
@@ -59,13 +60,13 @@ export default class ProfileEdit extends Component {
 
     history.push('/profile');
     const response = updateUser(ApiObj);
-    // console.log(response);
+    return response
   };
 
   render() {
     const { userName, userEmail, userImage, userDescription, isLoading } = this.state;
 
-    if (isLoading) <Loading />;
+    if (isLoading) return <Loading />;
 
     const isFormValid = userName.length
       && userEmail.length
@@ -73,15 +74,22 @@ export default class ProfileEdit extends Component {
       && userDescription.length > 0;
 
     return (
-      <>
-        <Header />
-        <div data-testid="page-profile-edit">
-          <form>
-            <label htmlFor="userName">
+      <div className="container-search">
+        <div className="container-header-search">
+          <Header className="header" />
+        </div>
+        <div data-testid="page-profile-edit" className="container-form-result">
+          <div className="container-form-search">
+            <h3 className="favorite-title">Editar Perfil</h3>
+          </div>
+
+          <form className='form-profile-edit'>
+            <label htmlFor="userName" className="form-label">
               Nome:
               <input
                 data-testid="edit-input-name"
                 id="userName"
+                className="form-control"
                 type="text"
                 name="userName"
                 value={ userName }
@@ -89,11 +97,13 @@ export default class ProfileEdit extends Component {
               />
             </label>
 
-            <label htmlFor="userEmail">
+            <label htmlFor="userEmail" className="form-label">
               Email:
               <input
                 data-testid="edit-input-email"
                 id="userEmail"
+                id="userEmail"
+                className="form-control"
                 type="email"
                 name="userEmail"
                 value={ userEmail }
@@ -101,11 +111,13 @@ export default class ProfileEdit extends Component {
               />
             </label>
 
-            <label htmlFor="userDescription">
+            <label htmlFor="userDescription" className="form-label">
               Descrição:
               <input
                 data-testid="edit-input-description"
                 id="userDescription"
+                id="userEmail"
+                className="form-control"
                 type="text"
                 name="userDescription"
                 value={ userDescription }
@@ -113,11 +125,13 @@ export default class ProfileEdit extends Component {
               />
             </label>
 
-            <label htmlFor="userImage">
+            <label htmlFor="userImage" className="form-label">
               Imagem:
               <input
                 data-testid="edit-input-image"
                 id="userImage"
+                id="userEmail"
+                className="form-control"
                 type="text"
                 name="userImage"
                 value={ userImage }
@@ -128,6 +142,7 @@ export default class ProfileEdit extends Component {
             <button
               type="button"
               data-testid="edit-button-save"
+              className="btn btn-primary"
               disabled={ !isFormValid }
               onClick={ this.onButtonSave }
             >
@@ -135,7 +150,7 @@ export default class ProfileEdit extends Component {
             </button>
           </form>
         </div>
-      </>
+      </div>
     );
   }
 }

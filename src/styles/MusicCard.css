@@ -1,26 +1,65 @@
 .container-card-music {
-  display: flex;
-  justify-content: flex-start;
   align-items: center;
+  background-image: linear-gradient(to right, #6e44ff, #a541fc, #e440f2, #ff1b8d, #ff0a54);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  margin-top: 50px;
+  padding: 20px 0px;
+  transition: background-image 0.1s ease-in-out;
+}
+
+.container-card-music:hover {
+  background-image: linear-gradient(to right, #ff0a54, #ff1b8d, #e440f2, #a541fc, #6e44ff);
 }
 
 .container-card-music audio {
-  width: 371.3px;
-  height: 55.95px;
   border-radius: 42.3864px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.539);
+  height: 55.95px;
+  width: 371.3px;
+}
+
+
+.container-card-music > h3 {
+  font-size: 1.5em;
 }
 
 audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-panel {
   background-color: white;
-  color: #000;
+  color: black;
 }
 
 .icon-music-card {
-  width: 35px;
   height: 35px;
   margin-right: 10px;
+  width: 35px;
+}
+
+.trackname > h3 {
+  font-size: 1.5em;
+  text-align: center;
+}
+.trackname > h6 {
+  text-align: center;
+}
+
+.checkbox-favorite {
+  appearance: none;
+  content: url(../assets/images/unchecked.png);
+  cursor: pointer;
+  width: 40px;
+}
+
+.checkbox-favorite:checked {
+  content: url(../assets/images/checked.png);
+}
+
+.audio {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }

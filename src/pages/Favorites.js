@@ -34,7 +34,7 @@ export default class Favorites extends Component {
   render() {
     const { isLoading, favoriteMusics } = this.state;
     console.log(favoriteMusics);
-    if (isLoading) return <Loading />;
+   // if (isLoading) return <Loading />;
     return (
       <div className="container-search">
         <div className="container-header-search">

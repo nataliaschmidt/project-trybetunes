@@ -1,7 +1,12 @@
 .result {
   text-align: center;
   margin-top: 60px;
-  color: var(--primary-font-color);
+  color: #fefae0;
+
+}
+
+.artist-name {
+  text-transform: capitalize;
 }
 
 .container-result {
@@ -22,8 +27,9 @@
 height: 300px;
 mix-blend-mode: normal;
 border-radius: 10px;
-box-shadow: 5px 5px 15px black;
+box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.114);
 transition: transform 0.2s ease-in-out;
+margin-bottom: 10px;
 }
 
 .container-albuns img:hover {
@@ -32,13 +38,13 @@ transition: transform 0.2s ease-in-out;
 
 .link-result {
   text-decoration: none;
-  color: #3D495C;
+  color: #fefae0;
   display: flex;
   flex-wrap: wrap;
   width: 300px;
 }
 
 .container-albuns h6 {
-  color: #3D495C;
+  color: #fefae0;
   margin-top: -10px;
 }

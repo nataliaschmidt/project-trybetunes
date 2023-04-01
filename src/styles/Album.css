@@ -2,72 +2,89 @@
   width: 100%;
 }
 
-.container-form-result.album{
-position: relative;
+.container-form-result.album {
+  position: relative;
 }
 
 .container-infos-album {
   display: flex;
+  left: 80px;
   position: absolute;
   top: 60px;
-  left: 80px;
   z-index: 1;
 }
 
 .container-disc-infos {
-  color: var(--secondary-acent-color);
+  color: var(--primary-font-color);
+  left: 500px;
   position: absolute;
-  left: 480px;
   top: 100px;
 }
 
 .container-infos-album img {
-width: 240px;
-height: 240px;
-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: -5px 2px 20px 2px rgba(255, 255, 255, 0.18);
+  height: 240px;
+  width: 240px;
 }
 
-.container-vinil{
+.container-vinil {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  left: 225px;
   position: absolute;
   top: 65px;
-  left: 225px;
   z-index: 0;
 }
 
 .vinil {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  width: 230px;
-  height: 230px;
-  border-radius: 50%;
   background: black;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  box-shadow: 2px 2px 20px 2px rgba(255, 255, 255, 0.18);
+  display: flex;
+  height: 230px;
+  justify-content: center;
   position: relative;
+  width: 230px;
 }
+
+.turn-vinil {
+  animation: Vinil-spin infinite 10s linear;
+}
+
+@keyframes Vinil-spin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 .img-vinil {
   border-radius: 50%;
 }
 
 .vinil-hole {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
   background: black;
+  border-radius: 50%;
+  height: 13px;
+  left: 50%;
   position: absolute;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
+  width: 13px;
 }
 
 .container-music {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   gap: 20px;
+  justify-content: center;
+  margin-left: 50px;
   margin-top: 120px;
 }

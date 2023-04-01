@@ -3,11 +3,13 @@ import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import Nav from './Nav';
 import '../styles/Header.css';
+import ImageUser from '../assets/images/user.png';
+import ImageLogo from '../assets/images/logo.png';
 
 export default class Header extends Component {
   state = {
     name: '',
-    image: './images/user.png',
+    image: ImageUser,
   };
 
   componentDidMount() {
@@ -19,7 +21,7 @@ export default class Header extends Component {
     // console.log(userObj);
     this.setState({
       name: userObj.name,
-      image: userObj.image ? userObj.image : './images/user.png',
+      image: userObj.image ? userObj.image : ImageUser,
     });
   };
 
@@ -31,7 +33,7 @@ export default class Header extends Component {
       <header data-testid="header-component">
         <img
           className="header-logo"
-          src="./images/logo.png"
+          src={ ImageLogo }
           alt="foto do usuário"
         />
         <Nav />
@@ -41,7 +43,7 @@ export default class Header extends Component {
             src={ image }
             alt="foto do usuário"
           />
-          { name ? <h2 data-testid="header-user-name">{name}</h2> : <Loading />}
+          { name ? <h2 data-testid="header-user-name">{name}</h2> : "Carregando..."}
         </div>
       </header>
     );
