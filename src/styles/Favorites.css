@@ -4,7 +4,7 @@
   font-weight: 500;
   line-height: 20px;
   text-align: center;
-  text-shadow: #f3faf7 0 0 12px #ff1b8d 0 0 34px #6e44ff 0 0 48px;
+  text-shadow: #f3faf7 0 0 12px, #ff1b8d 0 0 34px, #6e44ff 0 0 48px;
 }
 
 .container-favorites {

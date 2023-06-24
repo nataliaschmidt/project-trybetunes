@@ -16,6 +16,14 @@ ul {
   text-transform: capitalize;
 }
 
+/* .link-nav:hover {
+  color: #ff0a54;
+}
+
+.ico-nav:hover {
+  color: #ff0a54;
+} */
+
 .icon-nav {
   height: 35px;
   margin-right: 15px;
