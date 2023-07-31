@@ -1,10 +1,41 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Trybetunes
+
+Aplicação capaz de reproduzir trechos de músicas de variadas bandas e artistas.
+
+## Funcionalidades
+<hr>
+
+- Página de login
+
+- Pesquisar por uma banda ou artista e listar seus álbuns disponíveis
+
+- Visualizar as músicas de um álbum selecionada e reproduzir uma prévia das músicas
+
+- Favoritar e desfavoritar músicas
+
+- Ver a lista de músicas favoritas
+
+- Ver o perfil da pessoa logada e editar o perfil
+
+## Tecnologias Utilizadas
+<hr>
+
+- React
+- JavaScript
+- CSS
+
+## Instruções
+<hr>
+
+- Clone este repositório.
+
+```bash
+git clone git@github.com:nataliaschmidt/project-trybetunes.git
+```
+
+- Entre na pasta do repositório que você acabou de clonar.
+- Instale as dependências e inicialize o projeto.
+```bash
+npm install
+npm start
+```
