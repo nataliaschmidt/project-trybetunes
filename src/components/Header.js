@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getUser } from '../services/userAPI';
-import Loading from './Loading';
 import Nav from './Nav';
 import '../styles/Header.css';
 import ImageUser from '../assets/images/user.png';
@@ -43,7 +42,7 @@ export default class Header extends Component {
             src={ image }
             alt="foto do usuário"
           />
-          { name ? <h2 data-testid="header-user-name">{name}</h2> : "Carregando..."}
+          { name ? <h2 data-testid="header-user-name">{name}</h2> : 'Carregando...'}
         </div>
       </header>
     );

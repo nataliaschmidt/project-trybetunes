@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { CiEdit } from 'react-icons/ci';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
-import { CiEdit } from 'react-icons/ci'
 import '../styles/Profile.css';
 
 export default class Profile extends Component {
@@ -71,16 +71,18 @@ export default class Profile extends Component {
                 </h4>
               </div>
             </div>
-            <div className='description'>
-            <h4>
-              Descrição:
-              <p>{description}</p>
-            </h4>
+            <div className="description">
+              <h4>
+                Descrição:
+                <p>{description}</p>
+              </h4>
             </div>
-            <div className='container-edit-perfil'>
-            <Link className='link-to-perfil' to="/profile/edit">
-              <CiEdit className='icon-edit' /> Editar perfil
-            </Link>
+            <div className="container-edit-perfil">
+              <Link className="link-to-perfil" to="/profile/edit">
+                <CiEdit className="icon-edit" />
+                {' '}
+                Editar perfil
+              </Link>
             </div>
           </div>
         </div>

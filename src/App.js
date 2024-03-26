@@ -15,7 +15,7 @@ class App extends React.Component {
     return (
       <main>
         <Switch>
-        <Route exact path="/carregando" component={ Loading } />
+          <Route exact path="/carregando" component={ Loading } />
           <Route exact path="/" component={ Login } />
           <Route exact path="/search" component={ Search } />
           <Route exact path="/album/:id" component={ Album } />

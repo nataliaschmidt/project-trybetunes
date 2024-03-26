@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
-import '../styles/ProfileEdit.css'
+import '../styles/ProfileEdit.css';
 
 export default class ProfileEdit extends Component {
   state = {
@@ -60,7 +60,7 @@ export default class ProfileEdit extends Component {
 
     history.push('/profile');
     const response = updateUser(ApiObj);
-    return response
+    return response;
   };
 
   render() {
@@ -83,7 +83,7 @@ export default class ProfileEdit extends Component {
             <h3 className="favorite-title">Editar Perfil</h3>
           </div>
 
-          <form className='form-profile-edit'>
+          <form className="form-profile-edit">
             <label htmlFor="userName" className="form-label">
               Nome:
               <input
