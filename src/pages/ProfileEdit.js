@@ -102,7 +102,6 @@ export default class ProfileEdit extends Component {
               <input
                 data-testid="edit-input-email"
                 id="userEmail"
-                id="userEmail"
                 className="form-control"
                 type="email"
                 name="userEmail"
@@ -116,7 +115,6 @@ export default class ProfileEdit extends Component {
               <input
                 data-testid="edit-input-description"
                 id="userDescription"
-                id="userEmail"
                 className="form-control"
                 type="text"
                 name="userDescription"
@@ -130,7 +128,6 @@ export default class ProfileEdit extends Component {
               <input
                 data-testid="edit-input-image"
                 id="userImage"
-                id="userEmail"
                 className="form-control"
                 type="text"
                 name="userImage"

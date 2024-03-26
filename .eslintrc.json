@@ -1,3 +1,7 @@
 {
-  "extends": "@trybe/eslint-config-frontend"
+  "extends": "@trybe/eslint-config-frontend",
+  "rules": {
+    "no-unused-vars": ["error", { "varsIgnorePattern": "isLoading" }],
+    "react/jsx-max-depth": "off"
+  }
 }

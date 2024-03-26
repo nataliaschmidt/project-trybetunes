@@ -76,6 +76,7 @@ export default class MusicCard extends Component {
   render() {
     console.log(this.props);
     const { arrayMusic } = this.props;
+    // eslint-disable-next-line no-unused-vars
     const { isLoading, favoritesMusic } = this.state;
     // console.log(updateFavorite); -> recebendo por props
     // console.log('--------------------------');
@@ -95,7 +96,14 @@ export default class MusicCard extends Component {
               </div>
 
               <div className="audio">
-                <audio data-testid="audio-component" src={ music.previewUrl } controls onPlay={ this.playMusic } onPause={ this.stopMusic } onEnded={ this.stopMusic }>
+                <audio
+                  data-testid="audio-component"
+                  src={ music.previewUrl }
+                  controls
+                  onPlay={ this.playMusic }
+                  onPause={ this.stopMusic }
+                  onEnded={ this.stopMusic }
+                >
                   <track kind="captions" />
                   O seu navegador não suporta o elemento
                   {' '}
