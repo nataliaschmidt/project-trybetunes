@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Iniciar') { 
             steps {
-                    sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/TrybeTunes;export JENKINS_NODE_COOKIE=dontKillMe;pm2 stop TrybeTunes --silent;pm2 delete TrybeTunes --silent"'
+                    sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/TrybeTunes;export JENKINS_NODE_COOKIE=dontKillMe;pm2 stop TrybeTunes --silent;pm2 delete TrybeTunes --s"'
                     sh 'ssh ubuntu@172.17.0.1 "cd /home/ubuntu/apps/TrybeTunes;pm2 start -n TrybeTunes npm -- start;pm2 save --force"' 
             }
         }
